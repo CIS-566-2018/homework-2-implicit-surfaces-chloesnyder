@@ -33,7 +33,6 @@ vec3 outlineColor = vec3(0.0);
 vec2 convertAspectRatio(vec2 st) {
 
 	return ((st + 1.0) / 2.0) * u_AspectRatio.xy;
-   // return 2.0 * (st - 0.5) * u_AspectRatio.xy / max(u_AspectRatio.x, u_AspectRatio.y);
 }
 
 
@@ -168,8 +167,8 @@ float eyes(vec3 p)
 	float eyes = unionSDF(e1, e2);
 
 	// pupils
-	vec3 pupil1 = eye1;//scaleOp(eye1, vec3(1.0, 1.0, 1.0));
-	vec3 pupil2 = eye2;//scaleOp(eye2, vec3(1.0, 1.0, 1.0));
+	vec3 pupil1 = eye1;
+	vec3 pupil2 = eye2;
 	pupil1 -= vec3(0.0, -.01, 0.0);
 	pupil2 -= vec3(0.0, -.01, 0.0);
 	float p1 = cubeSDF(pupil1, vec3(.01, .02, 0.08));
@@ -434,8 +433,6 @@ mat4 viewMatrix(vec3 eye, vec3 center, vec3 up) {
     );
 }
 
-
-//https://www.shadertoy.com/view/llt3R4
 void main() {
 	// TODO: make a Raymarcher!
 
